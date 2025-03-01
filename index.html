@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="ru" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="img/logo.png" type="image/icon type" />
+    <title>Быт петровской эпохи - Hero Section</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <style>
+      .hero-animate {
+        animation: fadeIn 2s ease-in;
+      }
+      @keyframes fadeIn {
+        0% {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .slide-in-left {
+        animation: slideInLeft 1s ease-out;
+      }
+      @keyframes slideInLeft {
+        0% {
+          opacity: 0;
+          transform: translateX(-100px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      .slide-in-right {
+        animation: slideInRight 1s ease-out;
+      }
+      @keyframes slideInRight {
+        0% {
+          opacity: 0;
+          transform: translateX(100px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      .fade-in-up {
+        animation: fadeInUp 1s ease-out;
+      }
+      @keyframes fadeInUp {
+        0% {
+          opacity: 0;
+          transform: translateY(50px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .scale-in {
+        animation: scaleIn 0.5s ease-out;
+      }
+      @keyframes scaleIn {
+        0% {
+          opacity: 0;
+          transform: scale(0.8);
+        }
+        100% {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+
+      .hover-grow {
+        transition: transform 0.3s ease;
+      }
+      .hover-grow:hover {
+        transform: scale(1.05);
+      }
+
+      .hover-glow {
+        transition: all 0.3s ease;
+      }
+      .hover-glow:hover {
+        box-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
+      }
+
+      .reveal {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 1s ease;
+      }
+      .reveal.active {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    </style>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              playfair: ['"Playfair Display"', "serif"],
+            },
+            colors: {
+              royal: {
+                gold: "#d4af37",
+                red: "#8b0000",
+                black: "#1a1a1a",
+              },
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body class="bg-stone-50 font-playfair">
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 transition-all duration-300">
+      <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+        <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
+          <div class="w-10 h-10 border-2 border-royal-gold flex items-center justify-center backdrop-blur-sm bg-black/20">
+            <span class="text-royal-gold text-xl font-bold">П</span>
+          </div>
+          <span class="self-center text-2xl font-semibold whitespace-nowrap text-white drop-shadow-lg">Петровская эпоха</span>
+        </a>
+        <button
+          data-collapse-toggle="navbar-default"
+          type="button"
+          class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-royal-gold rounded-lg md:hidden hover:bg-black/20 focus:outline-none focus:ring-2 focus:ring-royal-gold backdrop-blur-sm"
+          aria-controls="navbar-default"
+          aria-expanded="false"
+        >
+          <span class="sr-only">Открыть меню</span>
+          <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15" />
+          </svg>
+        </button>
+        <div class="hidden w-full md:block md:w-auto" id="navbar-default">
+          <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-royal-gold/20 rounded-lg bg-black/50 backdrop-blur-sm md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-transparent">
+            <li>
+              <a href="#" class="block py-2 px-3 text-royal-gold md:p-0 drop-shadow-lg" aria-current="page">Главная</a>
+            </li>
+            <li>
+              <a href="#etiquette" class="block py-2 px-3 text-white hover:text-royal-gold md:p-0 transition-colors duration-300 drop-shadow-lg">Этикет</a>
+            </li>
+            <li>
+              <a href="#assemblies" class="block py-2 px-3 text-white hover:text-royal-gold md:p-0 transition-colors duration-300 drop-shadow-lg">Ассамблеи</a>
+            </li>
+            <li>
+              <a href="#fashion" class="block py-2 px-3 text-white hover:text-royal-gold md:p-0 transition-colors duration-300 drop-shadow-lg">Одежда</a>
+            </li>
+            <li>
+              <a href="#calendar" class="block py-2 px-3 text-white hover:text-royal-gold md:p-0 transition-colors duration-300 drop-shadow-lg">Календарь</a>
+            </li>
+            <li>
+              <a href="#quiz" class="block py-2 px-3 text-white hover:text-royal-gold md:p-0 transition-colors duration-300 drop-shadow-lg">Quiz</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative h-screen flex items-center justify-center overflow-hidden">
+      <div class="absolute inset-0">
+        <img src="img/peter1.png" alt="Peter the Great Era" class="w-full h-full object-cover object-center scale-105 transition-transform duration-1000 hover:scale-100" />
+        <div class="absolute inset-0 bg-gradient-to-b from-black/60 to-black/50"></div>
+      </div>
+      <div class="relative z-10 text-center px-4 sm:px-6 lg:px-8 hero-animate">
+        <h1 class="text-5xl md:text-7xl text-white font-bold mb-4 tracking-wider">Быт петровской эпохи</h1>
+        <h2 class="text-3xl md:text-4xl text-royal-gold mb-4">Повседневная жизнь при Петре I</h2>
+        <p class="text-xl md:text-2xl text-stone-200">1682 - 1725</p>
+        <a href="#" class="inline-block mt-8 px-8 py-3 bg-royal-gold text-white rounded-lg transform transition-all duration-300 hover:scale-105 hover:bg-opacity-90">Узнать больше</a>
+      </div>
+    </header>
+
+    <!-- Etiquette Section -->
+    <section id="etiquette" class="relative min-h-screen flex items-center py-20">
+      <div class="absolute inset-0">
+        <img src="img/etiket.png" alt="Etiquette in Peter's Era" class="w-full h-full object-cover object-center hover-grow" />
+        <div class="absolute inset-0 bg-gradient-to-b from-black/80 to-black/70"></div>
+      </div>
+      <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16 reveal">
+          <h2 class="text-4xl md:text-6xl text-royal-gold font-bold mb-4 tracking-wider slide-in-left">Этикет петровской эпохи</h2>
+          <p class="text-xl text-stone-200 max-w-3xl mx-auto slide-in-right">Правила поведения и манеры в обществе времен Петра I</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Card 1 -->
+          <div class="bg-royal-black/40 backdrop-blur-sm p-6 rounded-lg border border-royal-gold/20 transform transition-all duration-300 hover:-translate-y-2 hover-glow reveal">
+            <h3 class="text-2xl text-royal-gold mb-4">Поведение за столом</h3>
+            <ul class="space-y-3 text-stone-200">
+              <li class="flex items-start">
+                <span class="text-royal-gold mr-2">•</span>
+                <p>Не чавкать и не шуметь за столом</p>
+              </li>
+              <li class="flex items-start">
+                <span class="text-royal-gold mr-2">•</span>
+                <p>Использовать столовые приборы правильно</p>
+              </li>
+              <li class="flex items-start">
+                <span class="text-royal-gold mr-2">•</span>
+                <p>Соблюдать умеренность в еде и питье</p>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="bg-royal-black/40 backdrop-blur-sm p-6 rounded-lg border border-royal-gold/20 transform transition-all duration-300 hover:-translate-y-2 hover-glow reveal">
+            <h3 class="text-2xl text-royal-gold mb-4">Светские манеры</h3>
+            <ul class="space-y-3 text-stone-200">
+              <li class="flex items-start">
+                <span class="text-royal-gold mr-2">•</span>
+                <p>Говорить учтиво и вежливо</p>
+              </li>
+              <li class="flex items-start">
+                <span class="text-royal-gold mr-2">•</span>
+                <p>Кланяться с достоинством</p>
+              </li>
+              <li class="flex items-start">
+                <span class="text-royal-gold mr-2">•</span>
+                <p>Держать осанку прямо</p>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="bg-royal-black/40 backdrop-blur-sm p-6 rounded-lg border border-royal-gold/20 transform transition-all duration-300 hover:-translate-y-2 hover-glow reveal">
+            <h3 class="text-2xl text-royal-gold mb-4">Правила общения</h3>
+            <ul class="space-y-3 text-stone-200">
+              <li class="flex items-start">
+                <span class="text-royal-gold mr-2">•</span>
+                <p>Почитать старших</p>
+              </li>
+              <li class="flex items-start">
+                <span class="text-royal-gold mr-2">•</span>
+                <p>Не перебивать собеседника</p>
+              </li>
+              <li class="flex items-start">
+                <span class="text-royal-gold mr-2">•</span>
+                <p>Быть умеренным в речах</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="text-center mt-12">
+          <a href="#" class="inline-block px-8 py-3 bg-royal-gold text-white rounded-lg transform transition-all duration-300 hover:scale-105 hover:bg-opacity-90"> Подробнее об этикете </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Assemblies Section -->
+    <section id="assemblies" class="relative min-h-screen flex items-center py-20">
+      <div class="absolute inset-0">
+        <img src="img/asambel.png" alt="Assemblies in Peter's Era" class="w-full h-full object-cover object-center" />
+        <div class="absolute inset-0 bg-gradient-to-b from-black/50 to-black/70"></div>
+      </div>
+      <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl md:text-6xl text-royal-gold font-bold mb-4 tracking-wider">Ассамблеи</h2>
+          <p class="text-xl text-stone-200 max-w-3xl mx-auto">Новая форма светской жизни, введенная Петром I в 1718 году</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8 mb-12">
+          <!-- Main Description -->
+          <div class="bg-royal-black/40 backdrop-blur-sm p-8 rounded-lg border border-royal-gold/20">
+            <h3 class="text-2xl text-royal-gold mb-6">О Ассамблеях</h3>
+            <p class="text-stone-200 leading-relaxed mb-6">Ассамблеи стали революционным явлением в русском обществе. Впервые мужчины и женщины могли свободно общаться на светских мероприятиях, танцевать и обсуждать различные темы.</p>
+            <p class="text-stone-200 leading-relaxed">Эти собрания проводились в домах знати по очереди, и присутствие на них было обязательным для дворян.</p>
+          </div>
+
+          <!-- Schedule -->
+          <div class="bg-royal-black/40 backdrop-blur-sm p-8 rounded-lg border border-royal-gold/20">
+            <h3 class="text-2xl text-royal-gold mb-6">Порядок проведения</h3>
+            <ul class="space-y-4 text-stone-200">
+              <li class="flex items-start">
+                <span class="text-royal-gold mr-3">1.</span>
+                <p>Начало в 17:00 часов</p>
+              </li>
+              <li class="flex items-start">
+                <span class="text-royal-gold mr-3">2.</span>
+                <p>Танцы и светские беседы</p>
+              </li>
+              <li class="flex items-start">
+                <span class="text-royal-gold mr-3">3.</span>
+                <p>Угощения и напитки</p>
+              </li>
+              <li class="flex items-start">
+                <span class="text-royal-gold mr-3">4.</span>
+                <p>Окончание около полуночи</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8">
+          <!-- Activities Card -->
+          <div class="bg-royal-black/40 backdrop-blur-sm p-6 rounded-lg border border-royal-gold/20 transform transition-all duration-300 hover:-translate-y-2">
+            <h3 class="text-2xl text-royal-gold mb-4">Развлечения</h3>
+            <ul class="space-y-3 text-stone-200">
+              <li class="flex items-start">
+                <span class="text-royal-gold mr-2">•</span>
+                <p>Европейские танцы</p>
+              </li>
+              <li class="flex items-start">
+                <span class="text-royal-gold mr-2">•</span>
+                <p>Карточные игры</p>
+              </li>
+              <li class="flex items-start">
+                <span class="text-royal-gold mr-2">•</span>
+                <p>Шахматы и шашки</p>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Rules Card -->
+          <div class="bg-royal-black/40 backdrop-blur-sm p-6 rounded-lg border border-royal-gold/20 transform transition-all duration-300 hover:-translate-y-2">
+            <h3 class="text-2xl text-royal-gold mb-4">Правила</h3>
+            <ul class="space-y-3 text-stone-200">
+              <li class="flex items-start">
+                <span class="text-royal-gold mr-2">•</span>
+                <p>Обязательное присутствие дам</p>
+              </li>
+              <li class="flex items-start">
+                <span class="text-royal-gold mr-2">•</span>
+                <p>Запрет на чины и титулы</p>
+              </li>
+              <li class="flex items-start">
+                <span class="text-royal-gold mr-2">•</span>
+                <p>Свобода общения</p>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Dress Code Card -->
+          <div class="bg-royal-black/40 backdrop-blur-sm p-6 rounded-lg border border-royal-gold/20 transform transition-all duration-300 hover:-translate-y-2">
+            <h3 class="text-2xl text-royal-gold mb-4">Дресс-код</h3>
+            <ul class="space-y-3 text-stone-200">
+              <li class="flex items-start">
+                <span class="text-royal-gold mr-2">•</span>
+                <p>Европейские наряды</p>
+              </li>
+              <li class="flex items-start">
+                <span class="text-royal-gold mr-2">•</span>
+                <p>Парики для мужчин</p>
+              </li>
+              <li class="flex items-start">
+                <span class="text-royal-gold mr-2">•</span>
+                <p>Веера для дам</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="text-center mt-12">
+          <a href="#" class="inline-block px-8 py-3 bg-royal-gold text-white rounded-lg transform transition-all duration-300 hover:scale-105 hover:bg-opacity-90"> Подробнее об ассамблеях </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Clothing Section -->
+    <section id="fashion" class="relative min-h-screen flex items-center py-20">
+      <div class="absolute inset-0">
+        <img src="img/fashion.png" alt="Fashion in Peter's Era" class="w-full h-full object-cover object-center" />
+        <div class="absolute inset-0 bg-gradient-to-b from-black/30 to-black/50"></div>
+      </div>
+      <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl md:text-6xl text-royal-gold font-bold mb-4 tracking-wider">Одежда и внешний вид</h2>
+          <p class="text-xl text-stone-200 max-w-3xl mx-auto">Европейская мода и реформы внешнего вида при Петре I</p>
+        </div>
+
+        <!-- Interactive Clothes Section -->
+        <div class="grid md:grid-cols-2 gap-8 mb-12">
+          <!-- Men's Interactive Clothing -->
+          <div class="relative group cursor-pointer" onclick="toggleClothingDetails('mens-clothing')">
+            <img src="img/fashionman.png" alt="Мужской костюм петровской эпохи" class="w-full h-96 object-cover rounded-lg transform transition-all duration-300 group-hover:scale-105" />
+            <div class="absolute inset-0 bg-black/50 rounded-lg flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <span class="text-2xl text-royal-gold">Нажмите для подробностей</span>
+            </div>
+            <!-- Clothing Details Popup -->
+            <div id="mens-clothing" class="fixed inset-0 bg-black/90 z-50 hidden items-center justify-center">
+              <div class="bg-royal-black/95 p-8 max-w-2xl rounded-lg border-2 border-royal-gold relative">
+                <button onclick="toggleClothingDetails('mens-clothing')" class="absolute top-4 right-4 text-royal-gold hover:text-white">
+                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                  </svg>
+                </button>
+                <h3 class="text-3xl text-royal-gold mb-4">Мужской костюм петровской эпохи</h3>
+                <div class="text-stone-200 space-y-4">
+                  <p><span class="text-royal-gold">Кафтан:</span> Длинный приталенный сюртук французского кроя с широкими обшлагами и богатой отделкой.</p>
+                  <p><span class="text-royal-gold">Камзол:</span> Укороченная верхняя одежда, богато украшенная вышивкой и пуговицами.</p>
+                  <p><span class="text-royal-gold">Кюлоты:</span> Короткие штаны до колен, обязательная часть дворянского костюма.</p>
+                  <p><span class="text-royal-gold">Аксессуары:</span> Парик, треуголка, шпага, чулки и туфли с пряжками.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Women's Interactive Clothing -->
+          <div class="relative group cursor-pointer" onclick="toggleClothingDetails('womens-clothing')">
+            <img src="img/fashion woman.png" alt="Женский костюм петровской эпохи" class="w-full h-96 object-cover rounded-lg transform transition-all duration-300 group-hover:scale-105" />
+            <div class="absolute inset-0 bg-black/50 rounded-lg flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <span class="text-2xl text-royal-gold">Нажмите для подробностей</span>
+            </div>
+            <!-- Clothing Details Popup -->
+            <div id="womens-clothing" class="fixed inset-0 bg-black/90 z-50 hidden items-center justify-center">
+              <div class="bg-royal-black/95 p-8 max-w-2xl rounded-lg border-2 border-royal-gold relative">
+                <button onclick="toggleClothingDetails('womens-clothing')" class="absolute top-4 right-4 text-royal-gold hover:text-white">
+                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                  </svg>
+                </button>
+                <h3 class="text-3xl text-royal-gold mb-4">Женский костюм петровской эпохи</h3>
+                <div class="text-stone-200 space-y-4">
+                  <p><span class="text-royal-gold">Роброн:</span> Пышное платье на каркасе, с глубоким декольте и узким корсетом.</p>
+                  <p><span class="text-royal-gold">Корсет:</span> Жесткий корсет, формирующий силуэт по европейской моде.</p>
+                  <p><span class="text-royal-gold">Юбка:</span> Пышная юбка на каркасе (панье), расширяющаяся к низу.</p>
+                  <p><span class="text-royal-gold">Аксессуары:</span> Веер, перчатки, украшения, фонтанж (высокая прическа).</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center mt-12">
+          <a href="#" class="inline-block px-8 py-3 bg-royal-gold text-white rounded-lg transform transition-all duration-300 hover:scale-105 hover:bg-opacity-90"> Подробнее об одежде </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Calendar Section -->
+    <section id="calendar" class="relative min-h-screen flex items-center py-20">
+      <div class="absolute inset-0">
+        <img src="img/calender.png" alt="Calendar Reform in Peter's Era" class="w-full h-full object-cover object-center" />
+        <div class="absolute inset-0 bg-gradient-to-b from-black/40 to-black/70"></div>
+      </div>
+      <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl md:text-6xl text-royal-gold font-bold mb-4 tracking-wider">Новый календарь</h2>
+          <p class="text-xl text-stone-200 max-w-3xl mx-auto">Реформа летоисчисления и празднования Нового года</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8 mb-12">
+          <!-- Main Description -->
+          <div class="bg-royal-black/40 backdrop-blur-sm p-8 rounded-lg border border-royal-gold/20">
+            <h3 class="text-2xl text-royal-gold mb-6">О реформе календаря</h3>
+            <p class="text-stone-200 leading-relaxed mb-6">
+              В 1699 году Петр I издал указ о переходе на новое летоисчисление. Началом года стало 1 января вместо 1 сентября, а счет лет стал вестись от Рождества Христова, а не от сотворения мира.
+            </p>
+            <p class="text-stone-200 leading-relaxed">Это изменение символизировало сближение России с европейской культурой и облегчало международные отношения.</p>
+          </div>
+
+          <!-- Changes Timeline -->
+          <div class="bg-royal-black/40 backdrop-blur-sm p-8 rounded-lg border border-royal-gold/20">
+            <h3 class="text-2xl text-royal-gold mb-6">Основные изменения</h3>
+            <ul class="space-y-4 text-stone-200">
+              <li class="flex items-start">
+                <span class="text-royal-gold mr-3">7208</span>
+                <p>Последний год по старому летоисчислению</p>
+              </li>
+              <li class="flex items-start">
+                <span class="text-royal-gold mr-3">1699</span>
+                <p>Указ о переходе на новый календарь</p>
+              </li>
+              <li class="flex items-start">
+                <span class="text-royal-gold mr-3">1700</span>
+                <p>Первый год по новому летоисчислению</p>
+              </li>
+              <li class="flex items-start">
+                <span class="text-royal-gold mr-3">1 января</span>
+                <p>Новая дата начала года</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8">
+          <!-- Celebrations Card -->
+          <div class="bg-royal-black/40 backdrop-blur-sm p-6 rounded-lg border border-royal-gold/20 transform transition-all duration-300 hover:-translate-y-2">
+            <h3 class="text-2xl text-royal-gold mb-4">Празднование</h3>
+            <ul class="space-y-3 text-stone-200">
+              <li class="flex items-start">
+                <span class="text-royal-gold mr-2">•</span>
+                <p>Украшение домов елями</p>
+              </li>
+              <li class="flex items-start">
+                <span class="text-royal-gold mr-2">•</span>
+                <p>Фейерверки и салюты</p>
+              </li>
+              <li class="flex items-start">
+                <span class="text-royal-gold mr-2">•</span>
+                <p>Народные гуляния</p>
+              </li>
+            </ul>
+          </div>
+
+          <!-- European Style Card -->
+          <div class="bg-royal-black/40 backdrop-blur-sm p-6 rounded-lg border border-royal-gold/20 transform transition-all duration-300 hover:-translate-y-2">
+            <h3 class="text-2xl text-royal-gold mb-4">Европейский стиль</h3>
+            <ul class="space-y-3 text-stone-200">
+              <li class="flex items-start">
+                <span class="text-royal-gold mr-2">•</span>
+                <p>Юлианский календарь</p>
+              </li>
+              <li class="flex items-start">
+                <span class="text-royal-gold mr-2">•</span>
+                <p>Новые праздники</p>
+              </li>
+              <li class="flex items-start">
+                <span class="text-royal-gold mr-2">•</span>
+                <p>Светские традиции</p>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Significance Card -->
+          <div class="bg-royal-black/40 backdrop-blur-sm p-6 rounded-lg border border-royal-gold/20 transform transition-all duration-300 hover:-translate-y-2">
+            <h3 class="text-2xl text-royal-gold mb-4">Значение реформы</h3>
+            <ul class="space-y-3 text-stone-200">
+              <li class="flex items-start">
+                <span class="text-royal-gold mr-2">•</span>
+                <p>Сближение с Европой</p>
+              </li>
+              <li class="flex items-start">
+                <span class="text-royal-gold mr-2">•</span>
+                <p>Модернизация общества</p>
+              </li>
+              <li class="flex items-start">
+                <span class="text-royal-gold mr-2">•</span>
+                <p>Культурные изменения</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="text-center mt-12">
+          <a href="#" class="inline-block px-8 py-3 bg-royal-gold text-white rounded-lg transform transition-all duration-300 hover:scale-105 hover:bg-opacity-90"> Подробнее о календаре </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quiz Bot Section -->
+    <section id="quiz" class="relative min-h-screen flex items-center py-20">
+      <div class="absolute inset-0">
+        <div class="absolute inset-0 bg-gradient-to-b from-black/80 to-black/70"></div>
+      </div>
+      <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16 reveal">
+          <h2 class="text-4xl md:text-6xl text-royal-gold font-bold mb-4 tracking-wider slide-in-left">Проверьте свои знания</h2>
+          <p class="text-xl text-stone-200 max-w-3xl mx-auto slide-in-right">Интерактивный quiz-бот о петровской эпохе</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8 items-center">
+          <!-- Bot Description -->
+          <div class="bg-royal-black/40 backdrop-blur-sm p-8 rounded-lg border border-royal-gold/20 reveal">
+            <h3 class="text-2xl text-royal-gold mb-6">О нашем боте</h3>
+            <div class="space-y-4 text-stone-200">
+              <p>Наш Telegram-бот предлагает увлекательный способ проверить ваши знания о быте петровской эпохи.</p>
+              <ul class="space-y-3">
+                <li class="flex items-start">
+                  <span class="text-royal-gold mr-2">•</span>
+                  <p>Интересные вопросы об этикете</p>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-royal-gold mr-2">•</span>
+                  <p>Тесты о правилах ассамблей</p>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-royal-gold mr-2">•</span>
+                  <p>Вопросы об одежде и моде</p>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-royal-gold mr-2">•</span>
+                  <p>Загадки о календарной реформе</p>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Bot Link Card -->
+          <div class="bg-royal-black/40 backdrop-blur-sm p-8 rounded-lg border border-royal-gold/20 text-center reveal">
+            <div class="mb-8">
+              <svg class="w-20 h-20 mx-auto text-royal-gold" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15h-2v-6h2v6zm4 0h-2v-6h2v6zm-6-8V7h8v2h-8z" />
+              </svg>
+            </div>
+            <h3 class="text-3xl text-royal-gold mb-4">Попробовать Quiz</h3>
+            <p class="text-stone-200 mb-8">Проверьте свои знания о петровской эпохе прямо сейчас!</p>
+            <a href="www.bot" target="_blank" class="inline-block px-8 py-4 bg-royal-gold text-white rounded-lg transform transition-all duration-300 hover:scale-105 hover:bg-opacity-90 hover-glow">
+              Перейти к боту
+              <span class="ml-2">→</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="bg-royal-black/90 backdrop-blur-sm py-16 border-t border-royal-gold/20 reveal">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid md:grid-cols-2 gap-8">
+          <!-- About Section -->
+          <div class="space-y-4">
+            <div class="flex items-center space-x-3">
+              <div class="w-10 h-10 border-2 border-royal-gold flex items-center justify-center">
+                <span class="text-royal-gold text-xl font-bold">П</span>
+              </div>
+              <span class="text-xl font-semibold text-royal-gold">Петровская эпоха</span>
+            </div>
+            <p class="text-stone-200">Исторический портал о быте и культуре России времен Петра I</p>
+          </div>
+
+          <!-- Quick Links -->
+          <div class="space-y-4">
+            <h3 class="text-xl text-royal-gold font-semibold">Разделы</h3>
+            <ul class="space-y-2">
+              <li><a href="#etiquette" class="text-stone-200 hover:text-royal-gold transition-colors">Этикет</a></li>
+              <li><a href="#assemblies" class="text-stone-200 hover:text-royal-gold transition-colors">Ассамблеи</a></li>
+              <li><a href="#fashion" class="text-stone-200 hover:text-royal-gold transition-colors">Одежда</a></li>
+              <li><a href="#calendar" class="text-stone-200 hover:text-royal-gold transition-colors">Календарь</a></li>
+              <li><a href="#quiz" class="text-stone-200 hover:text-royal-gold transition-colors">Quiz</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="mt-12 pt-8 border-t border-royal-gold/20 text-center">
+          <p class="text-stone-200">© 2024 Быт петровской эпохи. Все права защищены.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Mobile menu functionality
+      const button = document.querySelector('[data-collapse-toggle="navbar-default"]');
+      const menu = document.getElementById("navbar-default");
+      const navbar = document.querySelector("nav");
+
+      button.addEventListener("click", () => {
+        menu.classList.toggle("hidden");
+      });
+
+      // Close menu when clicking outside
+      document.addEventListener("click", (e) => {
+        if (!button.contains(e.target) && !menu.contains(e.target)) {
+          menu.classList.add("hidden");
+        }
+      });
+
+      // Navbar scroll effect
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 100) {
+          navbar.classList.add("backdrop-blur-sm", "bg-black/30");
+        } else {
+          navbar.classList.remove("backdrop-blur-sm", "bg-black/30");
+        }
+      });
+
+      // Function to toggle clothing details popup
+      function toggleClothingDetails(id) {
+        const popup = document.getElementById(id);
+        if (popup.classList.contains("hidden")) {
+          popup.classList.remove("hidden");
+          popup.classList.add("flex");
+          document.body.style.overflow = "hidden";
+        } else {
+          popup.classList.add("hidden");
+          popup.classList.remove("flex");
+          document.body.style.overflow = "auto";
+        }
+      }
+
+      // Close popup when clicking outside
+      document.addEventListener("click", (e) => {
+        const popups = document.querySelectorAll("#mens-clothing, #womens-clothing");
+        popups.forEach((popup) => {
+          if (e.target === popup) {
+            toggleClothingDetails(popup.id);
+          }
+        });
+      });
+
+      // Close popup with Escape key
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") {
+          const popups = document.querySelectorAll("#mens-clothing, #womens-clothing");
+          popups.forEach((popup) => {
+            if (!popup.classList.contains("hidden")) {
+              toggleClothingDetails(popup.id);
+            }
+          });
+        }
+      });
+
+      function reveal() {
+        var reveals = document.querySelectorAll(".reveal");
+
+        reveals.forEach((element) => {
+          var windowHeight = window.innerHeight;
+          var elementTop = element.getBoundingClientRect().top;
+          var elementVisible = 150;
+
+          if (elementTop < windowHeight - elementVisible) {
+            element.classList.add("active");
+          }
+        });
+      }
+
+      window.addEventListener("scroll", reveal);
+      reveal(); // Initial check
+
+      // Enhanced navbar scroll effect
+      window.addEventListener("scroll", () => {
+        const navbar = document.querySelector("nav");
+        if (window.scrollY > 100) {
+          navbar.classList.add("backdrop-blur-sm", "bg-black/30", "scale-in");
+        } else {
+          navbar.classList.remove("backdrop-blur-sm", "bg-black/30", "scale-in");
+        }
+      });
+    </script>
+  </body>
+</html>
