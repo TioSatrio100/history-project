@@ -2,7 +2,7 @@ import random
 import telebot
 from telebot import types
 
-TOKEN = '7239729861:AAGWaZGrDayH7eqe6JY4TvRfttCQ1HVl29I'
+TOKEN = '7723306001:AAFuh2Rhbx-Nr63k7m0dnfXS8ImFL8rJF8I'
 bot = telebot.TeleBot(TOKEN)
 
 # Create a single instance of QuizBot
